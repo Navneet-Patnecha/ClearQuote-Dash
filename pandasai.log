@@ -2230,3 +2230,177 @@ result = {'type': 'string', 'value': f'The vehicle {most_inspections} is inspect
 2024-05-29 00:04:52 [INFO] Executing Step 7: ResultValidation
 2024-05-29 00:04:52 [INFO] Answer: {'type': 'string', 'value': 'The vehicle ABC87363 is inspected 5378 times.'}
 2024-05-29 00:04:52 [INFO] Executing Step 8: ResultParsing
+2024-05-29 01:02:29 [INFO] Question: how many vehicles were inspected
+2024-05-29 01:02:29 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-29 01:02:29 [INFO] Prompt ID: 490ff58b-8454-4244-b220-28ffb499fe85
+2024-05-29 01:02:29 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-29 01:02:29 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-29 01:02:29 [INFO] Executing Step 1: CacheLookup
+2024-05-29 01:02:29 [INFO] Executing Step 2: PromptGeneration
+2024-05-29 01:02:32 [INFO] Using prompt: <dataframe>
+dfs[0]:124213x4
+Inspection ID,Inspection date,Part detected,Vehicle ID
+Q-og43IsUhb,2024-05-03,Front windshield,RST78043
+Q-aXbuepRSK,2024-04-24,Bonnet,RST79787
+Q-oSCmecPbL,2024-05-13,Right fender,ABC87319
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ how many vehicles were inspected
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-29 01:02:32 [INFO] Executing Step 3: CodeGenerator
+2024-05-29 01:02:35 [INFO] Prompt used:
+            None
+            
+2024-05-29 01:02:35 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+total_vehicles_inspected = sum(df.shape[0] for df in dfs)
+
+# Declare result var
+result = { "type": "number", "value": total_vehicles_inspected }
+            ```
+            
+2024-05-29 01:02:35 [INFO] Executing Step 4: CachePopulation
+2024-05-29 01:02:35 [INFO] Executing Step 5: CodeCleaning
+2024-05-29 01:02:35 [INFO] 
+Code running:
+```
+total_vehicles_inspected = sum(df.shape[0] for df in dfs)
+result = {'type': 'number', 'value': total_vehicles_inspected}
+        ```
+2024-05-29 01:02:35 [INFO] Executing Step 6: CodeExecution
+2024-05-29 01:02:35 [INFO] Executing Step 7: ResultValidation
+2024-05-29 01:02:35 [INFO] Answer: {'type': 'number', 'value': 124213}
+2024-05-29 01:02:35 [INFO] Executing Step 8: ResultParsing
+2024-05-29 01:02:50 [INFO] Question: how many unique vehicles were inspected
+2024-05-29 01:02:50 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-29 01:02:50 [INFO] Prompt ID: 131e32cc-da78-4678-ab41-aeca81d62026
+2024-05-29 01:02:50 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-29 01:02:50 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-29 01:02:50 [INFO] Executing Step 1: CacheLookup
+2024-05-29 01:02:50 [INFO] Executing Step 2: PromptGeneration
+2024-05-29 01:02:52 [INFO] Using prompt: <dataframe>
+dfs[0]:124213x4
+Inspection ID,Inspection date,Part detected,Vehicle ID
+Q-PLgtAhvqK,2024-04-17,Right front door,YAG80713
+Q-ua-X23RHk,2024-04-22,Right ORVM,XAB68801
+Q-Q5ZtBvh31,2024-05-03,Left fender,RST79791
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ how many unique vehicles were inspected
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-29 01:02:52 [INFO] Executing Step 3: CodeGenerator
+2024-05-29 01:02:55 [INFO] Prompt used:
+            None
+            
+2024-05-29 01:02:55 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+unique_vehicles = len(dfs[0]['Vehicle ID'].unique())
+
+# Declare result variable
+result = {"type": "number", "value": unique_vehicles}
+            ```
+            
+2024-05-29 01:02:55 [INFO] Executing Step 4: CachePopulation
+2024-05-29 01:02:55 [INFO] Executing Step 5: CodeCleaning
+2024-05-29 01:02:55 [INFO] 
+Code running:
+```
+unique_vehicles = len(dfs[0]['Vehicle ID'].unique())
+result = {'type': 'number', 'value': unique_vehicles}
+        ```
+2024-05-29 01:02:55 [INFO] Executing Step 6: CodeExecution
+2024-05-29 01:02:55 [INFO] Executing Step 7: ResultValidation
+2024-05-29 01:02:55 [INFO] Answer: {'type': 'number', 'value': 44}
+2024-05-29 01:02:55 [INFO] Executing Step 8: ResultParsing
+2024-05-29 01:03:07 [INFO] Question: how many unique vehicles were inspected
+2024-05-29 01:03:07 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-29 01:03:07 [INFO] Prompt ID: aec69e21-4591-4908-a016-2536db2720cd
+2024-05-29 01:03:07 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-29 01:03:07 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-29 01:03:07 [INFO] Executing Step 1: CacheLookup
+2024-05-29 01:03:07 [INFO] Using cached response
+2024-05-29 01:03:07 [INFO] Executing Step 2: PromptGeneration
+2024-05-29 01:03:07 [INFO] Executing Step 2: Skipping...
+2024-05-29 01:03:07 [INFO] Executing Step 3: CodeGenerator
+2024-05-29 01:03:07 [INFO] Executing Step 3: Skipping...
+2024-05-29 01:03:07 [INFO] Executing Step 4: CachePopulation
+2024-05-29 01:03:07 [INFO] Executing Step 4: Skipping...
+2024-05-29 01:03:07 [INFO] Executing Step 5: CodeCleaning
+2024-05-29 01:03:07 [INFO] 
+Code running:
+```
+unique_vehicles = len(dfs[0]['Vehicle ID'].unique())
+result = {'type': 'number', 'value': unique_vehicles}
+        ```
+2024-05-29 01:03:07 [INFO] Executing Step 6: CodeExecution
+2024-05-29 01:03:07 [INFO] Executing Step 7: ResultValidation
+2024-05-29 01:03:07 [INFO] Answer: {'type': 'number', 'value': 44}
+2024-05-29 01:03:07 [INFO] Executing Step 8: ResultParsing
