@@ -4,23 +4,23 @@ import plotly.express as px
 
 from QueryLLM import query
 
-# Set the page configuration to wide layout
+
 st.set_page_config(page_title="ClearQuoteQuery", page_icon=":bar_chart:", layout="wide")
 
-# Function to display the Dashboard page
+
 def display_dashboard():
     st.title("Dashboard")
     st.subheader("Explore your CSV data with interactive visualizations")
 
-    # Read the CSV file from the specified location
-    file_path = "ClearQuote.csv"  # Replace with the actual file path
+    
+    file_path = "ClearQuote.csv"  
     df = pd.read_csv(file_path)
 
-    # Display the data as a table
+    
     st.subheader("Data Overview")
     st.write(df)
 
-    # Plotting section
+    
     st.subheader("Data Visualization")
 
     col1, col2, col3 = st.columns(3)
@@ -31,7 +31,7 @@ def display_dashboard():
     fig1 = px.bar(vehicle_count_by_date, x='Inspection date', y='Vehicle ID')
     st.plotly_chart(fig1, use_container_width=True)
 
-    # Create columns for the pie charts
+    
     col1, col2 = st.columns(2)
 
     # Question 2: Which parts were most frequently detected?
@@ -51,34 +51,33 @@ def display_dashboard():
         st.plotly_chart(fig3)
 
     # Question 4: Which vehicles have been inspected thoroughly (max number of parts detected) and which ones have poor coverage?
-    # Assuming df is already defined and loaded with the relevant data
-    # Group by Vehicle ID and Part detected, then count occurrences
+   
     vehicle_part_counts = df.groupby(['Vehicle ID', 'Part detected']).size().reset_index(name='Count')
 
-    # Sum the counts to get the total number of parts detected per vehicle
+   
     vehicle_total_parts = vehicle_part_counts.groupby('Vehicle ID')['Count'].sum().reset_index()
 
-    # Sort the vehicles by the total parts detected in descending order
+    
     vehicle_total_parts = vehicle_total_parts.sort_values('Count', ascending=False)
 
-    # Set up Streamlit layout: two columns for the table and the chart, with the chart column wider
-    col1, col2 = st.columns([1, 3])  # Give more space to the second column
+    
+    col1, col2 = st.columns([1, 3])  
 
-    # Display the sorted data in the first column
+    
     with col1:
-        st.subheader("Vehicles with Thorough Inspection (Descending Order)")
+        st.subheader("Vehicles with Thorough Inspection")
         st.write(vehicle_total_parts)
 
-    # Plotting the data using Plotly with color grading in the second column
+
     with col2:
         fig = px.bar(vehicle_total_parts, x='Vehicle ID', y='Count', 
                      labels={'Vehicle ID': 'Vehicle ID', 'Count': 'Number of Parts Detected'},
                      title='Number of Parts Detected per Vehicle',
-                     color='Count',  # Color by the count value
-                     color_continuous_scale='Viridis',  # Use a color scale
-                     width=1000, height=600)  # Set the size of the plot
+                     color='Count',  
+                     color_continuous_scale='Viridis',  
+                     width=1000, height=600)  
 
-        # Update the layout for better readability and make it scrollable
+       
         fig.update_layout(xaxis_title='Vehicle ID', yaxis_title='Number of Parts Detected', 
                           xaxis_tickangle=-45, xaxis={'categoryorder':'total descending'})
 
@@ -118,24 +117,24 @@ def display_dashboard():
     part_inspection_counts = df.groupby(['Vehicle ID', 'Part detected'])['Inspection ID'].nunique().reset_index()
     part_inspection_counts.columns = ['Vehicle ID', 'Part', 'Inspection Count']
 
-    # Dropdown for selecting a vehicle
+   
     selected_vehicle = st.selectbox("Select a Vehicle ID", df['Vehicle ID'].unique(), key='vehicle_select')
 
-    # Filter parts for the selected vehicle and determine coverage
+    
     vehicle_parts = part_inspection_counts[part_inspection_counts['Vehicle ID'] == selected_vehicle]
     vehicle_parts['Coverage'] = vehicle_parts['Inspection Count'].apply(lambda x: 'Good Coverage' if x >= 3 else 'Poor Coverage')
 
-    # Create a pivot table for the heatmap
+    
     heatmap_data = vehicle_parts.pivot(index='Vehicle ID', columns='Part', values='Inspection Count').fillna(0)
 
-    # Generate the heatmap
+ 
     heatmap_fig = px.imshow(heatmap_data, 
                             labels=dict(x="Part", y="Vehicle ID", color="Inspection Count"),
                             x=heatmap_data.columns,
                             y=heatmap_data.index,
                             color_continuous_scale='Viridis')
 
-    # Display the heatmap
+    
     st.subheader(f"Inspection Coverage Heatmap for Vehicle: {selected_vehicle}")
     st.plotly_chart(heatmap_fig, use_container_width=True)
 
@@ -144,7 +143,7 @@ def display_dashboard():
 
     st.markdown("---")
 
-    # Display the message with a bold header and a colorful background
+    
     st.markdown(
         """
         <div style='background-color: #f63366; padding: 20px;'>
