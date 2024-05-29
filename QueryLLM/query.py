@@ -37,14 +37,18 @@ def query_page():
 
     # Button to execute the query
     if st.button("Run Query"):
-        # Set up PandasAI
-        pandasai_api_key = os.getenv("PANDASAI_API_KEY")
-        os.environ["PANDASAI_API_KEY"] = pandasai_api_key
-        agent = SmartDatalake([df], config={"verbose": True, "response_parser": StreamlitResponse})
+    pandasai_api_key = os.getenv("PANDASAI_API_KEY")
+    os.environ["PANDASAI_API_KEY"] = pandasai_api_key
+    agent = SmartDatalake([df], config={"verbose": True, "response_parser": StreamlitResponse})
 
-        # Execute the query
+    try:
         response = agent.chat(query)
-
+        if isinstance(response, go.Figure):
+            st.plotly_chart(response)
+        else:
+            st.write(response)
+    except Exception as e:
+        st.error(f"An error occurred: {e}")
         # Check if the response contains a Plotly figure
         if isinstance(response, go.Figure):
             st.plotly_chart(response)
