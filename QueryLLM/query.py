@@ -5,7 +5,7 @@ from pandasai import SmartDatalake
 from pandasai.responses.streamlit_response import StreamlitResponse
 import plotly.graph_objs as go
 from dotenv import load_dotenv
-
+load_dotenv()
 # Function to read the CSV file and display the data
 def display_data():
     # Read the CSV file from the specified location
