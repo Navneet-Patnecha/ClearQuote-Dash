@@ -40,19 +40,17 @@ def query_page():
     st.subheader("Query Box")
     query = st.text_area("Enter your query here:")
     
-    
     if st.button("Run Query"):
-        os.environ["PANDASAI_API_KEY"] = "$2a$10$fWnNrjN33DFTkZK1wSj8tuN4bialosmBUU38evdaRJcESplC7K2Ca"
+        pandasai_api_key = os.environ.get('PANDASAI_API_KEY')
+        os.environ["PANDASAI_API_KEY"] = pandasai_api_key
         
-        
-        agent = None
-        
-        try:
-            agent = SmartDatalake([df], config={"verbose": True, "response_parser": StreamlitResponse})
-            response = agent.chat(query)
-            if isinstance(response, go.Figure):
-                st.plotly_chart(response)
-            else:
-                st.write(response)
-        except Exception as e:
-            st.error(f"An error occurred: {e}")
+    agent = None
+    try:
+        agent = SmartDatalake([df], config={"verbose": True, "response_parser": StreamlitResponse})
+        response = agent.chat(query)
+        if isinstance(response, go.Figure):
+            st.plotly_chart(response)
+        else:
+            st.write(response)
+    except Exception as e:
+        st.error(f"An error occurred: {e}")

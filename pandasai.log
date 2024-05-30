@@ -3116,3 +3116,382 @@ If you are asked to plot a chart, use "matplotlib" for charts, save as png.
 Generate python code and return full updated code:
 2024-05-29 20:27:45 [INFO] Executing Step 3: CodeGenerator
 2024-05-29 20:27:49 [ERROR] Pipeline failed on step 3: Request Failed
+2024-05-30 15:49:50 [INFO] Question: how many uniques vehicles is there?
+2024-05-30 15:49:50 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-30 15:49:50 [INFO] Prompt ID: 93d2bccd-a326-4ffc-9ebd-2ca15a080673
+2024-05-30 15:49:50 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-30 15:49:50 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-30 15:49:50 [INFO] Executing Step 1: CacheLookup
+2024-05-30 15:49:50 [INFO] Executing Step 2: PromptGeneration
+2024-05-30 15:49:55 [INFO] Using prompt: <dataframe>
+dfs[0]:124213x4
+Inspection ID,Inspection date,Part detected,Vehicle ID
+Q-sB16YCQ9y,2024-04-15,Right ORVM,RST79791
+Q-lX2IMCZQi,2024-04-22,Right Sidewall,RSV53391
+Q-E1ufIFQiv,2024-04-13,Cabin Roof,RSV53393
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ how many uniques vehicles is there?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-30 15:49:55 [INFO] Executing Step 3: CodeGenerator
+2024-05-30 15:49:59 [INFO] Question: 
+2024-05-30 15:49:59 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-30 15:49:59 [INFO] Prompt ID: ea40e7fd-1ea2-447d-b81e-ee0aa4a18d1e
+2024-05-30 15:49:59 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-30 15:49:59 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-30 15:49:59 [INFO] Executing Step 1: CacheLookup
+2024-05-30 15:49:59 [INFO] Executing Step 2: PromptGeneration
+2024-05-30 15:50:01 [INFO] Prompt used:
+            None
+            
+2024-05-30 15:50:01 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+unique_vehicles = set()
+for df in dfs:
+    unique_vehicles.update(df['Vehicle ID'])
+
+num_unique_vehicles = len(unique_vehicles)
+
+# Declare result var
+result = {
+    "type": "string",
+    "value": f"There are {num_unique_vehicles} unique vehicles."
+}
+            ```
+            
+2024-05-30 15:50:01 [INFO] Executing Step 4: CachePopulation
+2024-05-30 15:50:01 [INFO] Executing Step 5: CodeCleaning
+2024-05-30 15:50:01 [INFO] 
+Code running:
+```
+unique_vehicles = set()
+for df in dfs:
+    unique_vehicles.update(df['Vehicle ID'])
+num_unique_vehicles = len(unique_vehicles)
+result = {'type': 'string', 'value': f'There are {num_unique_vehicles} unique vehicles.'}
+        ```
+2024-05-30 15:50:01 [INFO] Executing Step 6: CodeExecution
+2024-05-30 15:50:01 [INFO] Executing Step 7: ResultValidation
+2024-05-30 15:50:01 [INFO] Answer: {'type': 'string', 'value': 'There are 44 unique vehicles.'}
+2024-05-30 15:50:01 [INFO] Executing Step 8: ResultParsing
+2024-05-30 15:50:04 [INFO] Using prompt: <dataframe>
+dfs[0]:124213x4
+Inspection ID,Inspection date,Part detected,Vehicle ID
+Q-QkXwdPs8_,2024-04-22,Tailgate,ABF22984
+Q-xlXg-EPyV,2024-05-07,Right front door,ABC87363
+Q-P30XNEn2N,2024-04-30,Left ORVM,ABC87366
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ 
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-30 15:50:04 [INFO] Executing Step 3: CodeGenerator
+2024-05-30 15:50:07 [ERROR] Pipeline failed on step 3: Request Failed
+2024-05-30 15:50:14 [INFO] Question: how many unique vehicles are there?
+2024-05-30 15:50:14 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-30 15:50:14 [INFO] Prompt ID: 63e6ee9f-c6de-4dcb-a7fe-a26a77e37483
+2024-05-30 15:50:14 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-30 15:50:15 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-30 15:50:15 [INFO] Executing Step 1: CacheLookup
+2024-05-30 15:50:15 [INFO] Using cached response
+2024-05-30 15:50:15 [INFO] Executing Step 2: PromptGeneration
+2024-05-30 15:50:15 [INFO] Executing Step 2: Skipping...
+2024-05-30 15:50:15 [INFO] Executing Step 3: CodeGenerator
+2024-05-30 15:50:15 [INFO] Executing Step 3: Skipping...
+2024-05-30 15:50:15 [INFO] Executing Step 4: CachePopulation
+2024-05-30 15:50:15 [INFO] Executing Step 4: Skipping...
+2024-05-30 15:50:15 [INFO] Executing Step 5: CodeCleaning
+2024-05-30 15:50:15 [INFO] 
+Code running:
+```
+unique_vehicles = pd.concat([df['Vehicle ID'] for df in dfs]).nunique()
+result = {'type': 'number', 'value': unique_vehicles}
+        ```
+2024-05-30 15:50:15 [INFO] Executing Step 6: CodeExecution
+2024-05-30 15:50:15 [INFO] Executing Step 7: ResultValidation
+2024-05-30 15:50:15 [INFO] Answer: {'type': 'number', 'value': 44}
+2024-05-30 15:50:15 [INFO] Executing Step 8: ResultParsing
+2024-05-30 15:51:09 [INFO] Question: 
+2024-05-30 15:51:09 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-30 15:51:09 [INFO] Prompt ID: 0660a38e-8c01-4074-8869-598fbde6905e
+2024-05-30 15:51:09 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-30 15:51:09 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-30 15:51:09 [INFO] Executing Step 1: CacheLookup
+2024-05-30 15:51:09 [INFO] Executing Step 2: PromptGeneration
+2024-05-30 15:51:15 [INFO] Using prompt: <dataframe>
+dfs[0]:124213x4
+Inspection ID,Inspection date,Part detected,Vehicle ID
+Q-N3Q5RkfXq,2024-04-16,Left fender,RST79802
+Q-c0Yc7uViF,2024-05-01,Right ORVM,ABD60466
+Q-Sr-O3BgmT,2024-05-10,Front bumper,ABC87319
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ 
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-30 15:51:15 [INFO] Executing Step 3: CodeGenerator
+2024-05-30 15:51:20 [ERROR] Pipeline failed on step 3: Request Failed
+2024-05-30 15:51:25 [INFO] Question: how many unique vehicles are there?
+2024-05-30 15:51:25 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-30 15:51:25 [INFO] Prompt ID: 89e74a05-fb75-4fcf-90d0-dd391c0c71f9
+2024-05-30 15:51:25 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-30 15:51:25 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-30 15:51:25 [INFO] Executing Step 1: CacheLookup
+2024-05-30 15:51:25 [INFO] Using cached response
+2024-05-30 15:51:25 [INFO] Executing Step 2: PromptGeneration
+2024-05-30 15:51:25 [INFO] Executing Step 2: Skipping...
+2024-05-30 15:51:25 [INFO] Executing Step 3: CodeGenerator
+2024-05-30 15:51:25 [INFO] Executing Step 3: Skipping...
+2024-05-30 15:51:25 [INFO] Executing Step 4: CachePopulation
+2024-05-30 15:51:25 [INFO] Executing Step 4: Skipping...
+2024-05-30 15:51:25 [INFO] Executing Step 5: CodeCleaning
+2024-05-30 15:51:25 [INFO] 
+Code running:
+```
+unique_vehicles = pd.concat([df['Vehicle ID'] for df in dfs]).nunique()
+result = {'type': 'number', 'value': unique_vehicles}
+        ```
+2024-05-30 15:51:25 [INFO] Executing Step 6: CodeExecution
+2024-05-30 15:51:25 [INFO] Executing Step 7: ResultValidation
+2024-05-30 15:51:25 [INFO] Answer: {'type': 'number', 'value': 44}
+2024-05-30 15:51:25 [INFO] Executing Step 8: ResultParsing
+2024-05-30 15:51:25 [INFO] Question: how many unique vehicles are there?
+2024-05-30 15:51:25 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-30 15:51:25 [INFO] Prompt ID: b0f51054-2676-437f-b3a2-1b706d76e12f
+2024-05-30 15:51:25 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-30 15:51:25 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-30 15:51:25 [INFO] Executing Step 1: CacheLookup
+2024-05-30 15:51:25 [INFO] Using cached response
+2024-05-30 15:51:25 [INFO] Executing Step 2: PromptGeneration
+2024-05-30 15:51:25 [INFO] Executing Step 2: Skipping...
+2024-05-30 15:51:25 [INFO] Executing Step 3: CodeGenerator
+2024-05-30 15:51:25 [INFO] Executing Step 3: Skipping...
+2024-05-30 15:51:25 [INFO] Executing Step 4: CachePopulation
+2024-05-30 15:51:25 [INFO] Executing Step 4: Skipping...
+2024-05-30 15:51:25 [INFO] Executing Step 5: CodeCleaning
+2024-05-30 15:51:25 [INFO] 
+Code running:
+```
+unique_vehicles = pd.concat([df['Vehicle ID'] for df in dfs]).nunique()
+result = {'type': 'number', 'value': unique_vehicles}
+        ```
+2024-05-30 15:51:25 [INFO] Executing Step 6: CodeExecution
+2024-05-30 15:51:25 [INFO] Executing Step 7: ResultValidation
+2024-05-30 15:51:25 [INFO] Answer: {'type': 'number', 'value': 44}
+2024-05-30 15:51:25 [INFO] Executing Step 8: ResultParsing
+2024-05-30 15:52:29 [INFO] Question: 
+2024-05-30 15:52:29 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-30 15:52:29 [INFO] Prompt ID: 92a9688d-edd7-4621-a772-6c0593b2537d
+2024-05-30 15:52:29 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-30 15:52:30 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-30 15:52:30 [INFO] Executing Step 1: CacheLookup
+2024-05-30 15:52:30 [INFO] Executing Step 2: PromptGeneration
+2024-05-30 15:52:34 [INFO] Using prompt: <dataframe>
+dfs[0]:124213x4
+Inspection ID,Inspection date,Part detected,Vehicle ID
+Q-SmEDMloof,2024-04-22,Right Sidewall,ABC87365
+Q-0FnfyqzAa,2024-05-06,Tailgate,RSV53393
+Q-S6O-U_dlx,2024-04-16,Cabin Roof,RSV53392
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ 
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-30 15:52:34 [INFO] Executing Step 3: CodeGenerator
+2024-05-30 15:52:36 [ERROR] Pipeline failed on step 3: Request Failed
+2024-05-30 15:52:41 [INFO] Question: how many unique vehi
+2024-05-30 15:52:41 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-30 15:52:41 [INFO] Prompt ID: 86cad14c-08f0-4450-8e1f-af626628932a
+2024-05-30 15:52:41 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-30 15:52:41 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-30 15:52:41 [INFO] Executing Step 1: CacheLookup
+2024-05-30 15:52:41 [INFO] Executing Step 2: PromptGeneration
+2024-05-30 15:52:49 [INFO] Using prompt: <dataframe>
+dfs[0]:124213x4
+Inspection ID,Inspection date,Part detected,Vehicle ID
+Q-kIRJMZlVY,2024-04-19,Front bumper,ABC87316
+Q-bxWLpjNUB,2024-05-11,Bonnet,RST79791
+Q-0HgFyZ9S1,2024-04-16,Left fender,ABC87375
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ how many unique vehi
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-30 15:52:49 [INFO] Executing Step 3: CodeGenerator
+2024-05-30 15:52:53 [INFO] Prompt used:
+            None
+            
+2024-05-30 15:52:53 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+unique_vehicles = pd.concat(dfs)['Vehicle ID'].nunique()
+
+# Declare result var:
+result = { "type": "string", "value": f"There are {unique_vehicles} unique vehicles." }
+            ```
+            
+2024-05-30 15:52:53 [INFO] Executing Step 4: CachePopulation
+2024-05-30 15:52:53 [INFO] Executing Step 5: CodeCleaning
+2024-05-30 15:52:53 [INFO] 
+Code running:
+```
+unique_vehicles = pd.concat(dfs)['Vehicle ID'].nunique()
+result = {'type': 'string', 'value': f'There are {unique_vehicles} unique vehicles.'}
+        ```
+2024-05-30 15:52:53 [INFO] Executing Step 6: CodeExecution
+2024-05-30 15:52:53 [INFO] Executing Step 7: ResultValidation
+2024-05-30 15:52:53 [INFO] Answer: {'type': 'string', 'value': 'There are 44 unique vehicles.'}
+2024-05-30 15:52:53 [INFO] Executing Step 8: ResultParsing
