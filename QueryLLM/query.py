@@ -21,7 +21,7 @@ def query_page():
 
    with st.expander("How it Works"):
        st.write("""
-           This application utilizes PandasAI, a powerful library that allows you to query and analyze data using natural language. After loading a dataset from a CSV file, the application displays the data for exploration. You can then enter a query in plain English into the provided text area. When you click the "Run Query" button, PandasAI's SmartDatalake agent processes your natural language query, leveraging large language models to understand its intent and convert it into executable code. This code is then run on your dataset, and the results are rendered within the application, either as visualizations (e.g., charts) or tabular data/text output. By integrating PandasAI, you can perform complex data analyses and generate insights without writing code manually, making the process more accessible and efficient.
+           This application utilizes PandasAI, a powerful library that allows you to query and analyze data using natural language. After loading a dataset from a CSV file, the application displays the data for exploration. You can then enter a query in plain English into the provided text area. When you click the "Run Query" button, PandasAI's SmartDatalake agent processes your natural language query, leveraging large language models to understand its intent and convert it into executable code. This code is then run on your dataset, and the results are rendered within the application as text. By integrating PandasAI, you can perform complex data analyses and generate insights without writing code manually, making the process more accessible and efficient.
        """)
 
    df = display_data()
