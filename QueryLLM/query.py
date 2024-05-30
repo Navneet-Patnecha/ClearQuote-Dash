@@ -50,7 +50,7 @@ def query_page():
         query = st.text_area("Enter your query here:")
 
         if st.button("Run Query"):
-            pandasai_api_key = os.getenv('PANDASAI_API_KEY')
+            pandasai_api_key = st.secrets["PANDASAI_API_KEY"]  # Retrieve the secret API key
             if not pandasai_api_key:
                 st.error("PANDASAI_API_KEY environment variable is not set.")
                 return
@@ -72,4 +72,5 @@ def query_page():
                     st.write(response)
             except Exception as e:
                 st.error(f"An error occurred: {e}")
+
 
