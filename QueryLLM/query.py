@@ -17,7 +17,17 @@ def query_page():
    
    with st.container():
        st.title("Query Your Data Using LLM")
-       st.subheader("Locally, the application works seamlessly, but after deployment, an API key issue arises.")
+       st.markdown(
+        """
+        <div style='background-color: #f65466; padding: 20px;'>
+            <h2 style='color: white; text-align: center;'>Query using LLM part works fine in local environment but not in deplyment</h2>
+            <p style='color: white; text-align: center; font-size: 18px;'>
+               
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
    with st.expander("How it Works"):
        st.write("""
