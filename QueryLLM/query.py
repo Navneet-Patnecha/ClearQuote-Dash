@@ -17,7 +17,7 @@ def query_page():
    
    with st.container():
        st.title("Query Your Data Using LLM")
-       st.write("Locally, the application works seamlessly, but after deployment, an API key issue arises.")
+       st.subheader("Locally, the application works seamlessly, but after deployment, an API key issue arises.")
 
    with st.expander("How it Works"):
        st.write("""
