@@ -19,11 +19,9 @@ def query_page():
        st.title("Query Your Data Using LLM")
        st.markdown(
         """
-        <div style='background-color: #f65466; padding: 20px;'>
-            <h2 style='color: white; text-align: center;'>Query using LLM part works fine in local environment but not in deplyment</h2>
-            <p style='color: white; text-align: center; font-size: 18px;'>
-               
-            </p>
+        <div style='background-color: #004d00; padding: 20px;margin-bottom: 20px;'>
+            <h2 style='color: white; text-align: center;'>The query using the LLM works fine in the local environment but not in deployment</h2>
+            
         </div>
         """,
         unsafe_allow_html=True
@@ -38,7 +36,7 @@ def query_page():
 
    with st.container():
        st.subheader("Data Preview")
-       st.write(df.head())
+       st.write(df)
 
    with st.container():
        st.subheader("Query Box")
